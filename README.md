@@ -1,0 +1,2 @@
+# result
+Java result type
