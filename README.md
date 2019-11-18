@@ -1,2 +1,3 @@
-# result
-Java result type
+# kyminon
+
+Helper library
