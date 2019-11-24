@@ -144,15 +144,15 @@ public abstract class Result<T, TError> {
     /**
      * @param <MappedOk> the resulting type after mapping Ok value
      * @param <MappedError> the resulting type after mapping Error value
-     * @param okMap Map Ok value of <T> to <MappedOk>
-     * @param errorMap Map Error value of <TError> to <MappedError>
+     * @param okMap Map Ok value to Result
+     * @param errorMap Map Error value to Result
      * @return result after applying either map on Ok or Error value
      */
     public abstract <MappedOk,MappedError> Result<MappedOk,MappedError> bimap(Function<T, MappedOk> okMap, Function<TError, MappedError> errorMap);
     /**
      * Map Ok value
-     * @param <MappedOk> 
-     * @param okMap Map Ok value of <T> to <MappedOk>
+     * @param <MappedOk> the resulting type after mapping Ok value
+     * @param okMap Map Ok value to result
      * @return result after applying either map on Ok or existing error value
      */
     public abstract <MappedOk> Result<MappedOk,TError> map(Function<T, MappedOk> okMap);
