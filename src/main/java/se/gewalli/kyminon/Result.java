@@ -3,8 +3,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 /**
  * Represents either an Ok value or an Error value. 
- * @param <T>
- * @param <TError>
+ * @param <T> Ok value
+ * @param <TError> Error value
  */
 public abstract class Result<T, TError> {
 
@@ -107,10 +107,10 @@ public abstract class Result<T, TError> {
 
     /**
      * Create a new Ok value of given type
-     * @param <T>
-     * @param <TError>
-     * @param ok
-     * @return
+     * @param <T> Ok type
+     * @param <TError> Error type
+     * @param ok value
+     * @return the wrapped ok value as a Result
      */
     public static <T, TError> Result<T, TError> ok(final T ok) {
         return new Ok<>(ok);
@@ -119,10 +119,10 @@ public abstract class Result<T, TError> {
     /**
      * Create a new Error value of given type
      * 
-     * @param <T>
-     * @param <TError>
-     * @param error
-     * @return
+     * @param <T> Ok type
+     * @param <TError> Error type
+     * @param error value
+     * @return the wrapped error value as a Result
      */
     public static <T, TError> Result<T, TError> error(final TError error) {
         return new Error<>(error);
@@ -142,19 +142,19 @@ public abstract class Result<T, TError> {
      */
     public abstract <TResult> TResult fold(Function<T, TResult> onOk, Function<TError, TResult> onError);
     /**
-     * @param <MappedOk>
-     * @param <MappedError>
-     * @param onOk
-     * @param onError
-     * @return
+     * @param <MappedOk> the resulting type after mapping Ok value
+     * @param <MappedError> the resulting type after mapping Error value
+     * @param okMap Map Ok value of <T> to <MappedOk>
+     * @param errorMap Map Error value of <TError> to <MappedError>
+     * @return result after applying either map on Ok or Error value
      */
-    public abstract <MappedOk,MappedError> Result<MappedOk,MappedError> bimap(Function<T, MappedOk> onOk, Function<TError, MappedError> onError);
+    public abstract <MappedOk,MappedError> Result<MappedOk,MappedError> bimap(Function<T, MappedOk> okMap, Function<TError, MappedError> errorMap);
     /**
      * Map Ok value
-     * @param <MappedOk>
-     * @param onOk
-     * @return
+     * @param <MappedOk> 
+     * @param okMap Map Ok value of <T> to <MappedOk>
+     * @return result after applying either map on Ok or existing error value
      */
-    public abstract <MappedOk> Result<MappedOk,TError> map(Function<T, MappedOk> onOk);
+    public abstract <MappedOk> Result<MappedOk,TError> map(Function<T, MappedOk> okMap);
 
 }
