@@ -6,6 +6,13 @@
   <version>1.0.0</version>
   <name>kyminon</name>
   <url>http://kyminon.gewalli.se/</url>
+  <description>Utility classes</description>
+  <developers>
+    <developer>
+      <email>gewalli+kyminon@gmail.com</email>
+      <name>Oskar Gewalli</name>
+    </developer>
+  </developers>
   <properties>
     <mavenJavadocPlugin>3.1.1</mavenJavadocPlugin>
     <mavenSitePlugin>3.8.2</mavenSitePlugin>
